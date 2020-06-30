@@ -10,7 +10,7 @@ import com.javi.hibernate.demo.entity.InstructorDetail;
 import com.javi.hibernate.demo.entity.Review;
 import com.javi.hibernate.demo.entity.Student;
 
-public class GetCoursesForMaryDemo {
+public class DeletePacmanCourseDemo {
 
 	public static void main(String[] args) {
 		
@@ -32,13 +32,15 @@ public class GetCoursesForMaryDemo {
 			// start a transaction
 			session.beginTransaction();
 			
-			// get the student from database
-			int studentId = 1;
-			Student tempStudent = session.get(Student.class, studentId);
+			// get the pacman course from database
+			int courseId = 10;
 			
-			System.out.println("\nLoaded student: " + tempStudent);
-			System.out.println("Course: " + tempStudent.getCourses());
+			Course tempCourse = session.get(Course.class, courseId);
 			
+			// delete the course
+			System.out.println("Deleting course: " + tempCourse);
+			
+			session.delete(tempCourse);
 			
 			// commit transaction
 			session.getTransaction().commit();
